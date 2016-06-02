@@ -4,8 +4,10 @@ import com.avvero.sortman.exeptions.SortmanException;
 import com.avvero.sortman.handler.HandlerFactory;
 import com.avvero.sortman.handler.IHandler;
 
-import java.io.*;
-import java.util.Arrays;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 
 import static java.util.stream.Collectors.joining;
 
@@ -24,7 +26,7 @@ public class Sortman {
         }
         int n = Integer.parseInt(args[0]);
         File file = new File(args[1]);
-        IHandler handler = new HandlerFactory().getHandler(n);
+        IHandler handler = HandlerFactory.getHandler(n);
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             String line;
             while ((line = br.readLine()) != null) {

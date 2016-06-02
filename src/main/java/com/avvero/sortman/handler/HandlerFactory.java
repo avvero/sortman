@@ -5,7 +5,7 @@ package com.avvero.sortman.handler;
  */
 public class HandlerFactory {
 
-    public IHandler getHandler(int resultSize) {
+    public static IHandler getHandler(int resultSize) {
         return new ArrayListHandler(resultSize);
     }
 
