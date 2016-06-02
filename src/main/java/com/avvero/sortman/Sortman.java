@@ -6,8 +6,6 @@ import com.avvero.sortman.handler.IHandler;
 
 import java.io.*;
 import java.util.Arrays;
-import java.util.StringJoiner;
-import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.joining;
 
@@ -26,7 +24,7 @@ public class Sortman {
         }
         int n = Integer.parseInt(args[0]);
         File file = new File(args[1]);
-        IHandler handler = HandlerFactory.getHandler(n);
+        IHandler<Long> handler = new HandlerFactory<Long>().getHandler(n);
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             String line;
             while ((line = br.readLine()) != null) {
@@ -34,7 +32,7 @@ public class Sortman {
                 handler.put(number);
             }
         }
-        String resultString = Arrays.asList(handler.result()).stream().map(i -> i.toString()).collect(joining(", "));
+        String resultString = handler.result().stream().map(i -> i.toString()).collect(joining(", "));
         System.out.println(resultString);
     }
 

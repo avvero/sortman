@@ -1,15 +1,15 @@
 package com.avvero.sortman.handler;
 
-import java.util.Collections;
+import java.util.Collection;
 import java.util.TreeSet;
 
 /**
  * @author fxdev-belyaev-ay
  */
-public class TreeSetHandler implements IHandler<Long> {
+public class TreeSetHandler<T extends Comparable> implements IHandler<T> {
 
     private int resultSize;
-    private TreeSet<Long> treeSet;
+    private TreeSet<T> treeSet;
 
     public TreeSetHandler(int resultSize) {
         this.resultSize = resultSize;
@@ -17,7 +17,7 @@ public class TreeSetHandler implements IHandler<Long> {
     }
 
     @Override
-    public void put(Long number) {
+    public void put(T number) {
         treeSet.add(number); // добавляем новый
         if (treeSet.size() > resultSize) {
             treeSet.pollFirst(); // удаляем меньший
@@ -25,7 +25,7 @@ public class TreeSetHandler implements IHandler<Long> {
     }
 
     @Override
-    public Long[] result() {
-        return treeSet.toArray(new Long[resultSize]);
+    public Collection<T> result() {
+        return treeSet;
     }
 }
