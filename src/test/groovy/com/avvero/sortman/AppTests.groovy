@@ -22,7 +22,6 @@ class AppTests extends Specification {
             "random_7_10.txt"         | new ArrayListHandler(300)
             "random_7_10.txt"         | new ArrayHandler(300)
             "random_7_10.txt"         | new BSArrayHandler(300)
-            "random_7_10.txt"         | new BSArrayHandler(300)
 
             "random_24_100.txt"       | new TreeSetHandler(300)
             "random_24_100.txt"       | new ArrayListHandler(300)

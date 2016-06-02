@@ -41,20 +41,11 @@ public class BSArrayHandler implements IHandler {
             }
         }
         long[] newArray = new long[array.length+1];
-        for (int x = 0; x < l+1; x++) {
-            newArray[x] = array[x];
-        }
+        System.arraycopy(array, 0, newArray, 0, l+1);
         newArray[l+1] = number;
-        for (int x = r; x < array.length; x++) {
-            newArray[x+1] = array[x];
+        if (r < array.length) {
+            System.arraycopy(array, r, newArray, r+1, array.length-r);
         }
-
-
-        // Лишний цикл проверки на дубли
-//        long[] newArray = Arrays.copyOf(array, array.length + 1);
-//        newArray[array.length] = number;
-//        Arrays.sort(newArray);
-
         if (newArray.length <= resultSize) {
             array = newArray;
         } else {
