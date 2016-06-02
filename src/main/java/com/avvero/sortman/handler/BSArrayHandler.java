@@ -6,6 +6,8 @@ import java.util.stream.Collectors;
 
 /**
  * Sort handler based on array and binarysearch algorithm
+ *
+ * Sort performs after each "add" method call
  * @author Avvero
  */
 public class BSArrayHandler implements IHandler {

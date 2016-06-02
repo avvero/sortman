@@ -7,6 +7,8 @@ import java.util.TreeSet;
  * Sort handler based on TreeSet with algorithm:
  * - add new number to TreeSet
  * - remove first
+ *
+ * Sort performs after each "add" method call
  * @author Avvero
  */
 public class TreeSetHandler implements IHandler {

@@ -9,6 +9,8 @@ import java.util.Collections;
  * - add new number to list
  * - sort list
  * - remove first (the lesser one) element
+ *
+ * Sort performs after each "add" method call
  * @author Avvero
  */
 public class ArrayListHandler implements IHandler {
