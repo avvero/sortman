@@ -23,8 +23,7 @@ public class BSArrayHandler implements IHandler {
             return;
         }
         //position search
-        int l = -1; //left border
-        int r = 0;  //right border
+        int p = -1; //position
         int low = 0, mid, high = this.array.length;
         while (low < high) {
             mid = (low + high) >>> 1;
@@ -32,36 +31,26 @@ public class BSArrayHandler implements IHandler {
                 return; //skip
             } else {
                 if (number < this.array[mid]) {
-                    r = mid;
                     high = mid;
                 } else {
-                    l = mid;
-                    r = mid + 1;
+                    p = mid;
                     low = mid + 1;
                 }
             }
         }
-        // replace first
-        if (array.length == resultSize && l == -1) {
-            array[0] = number;
-            return;
-        }
-        // replace last
-        if (array.length == resultSize && (l + 1) == array.length) {
-            array[l] = number;
-            return;
-        }
-        long[] newArray = new long[array.length+1];
-        System.arraycopy(array, 0, newArray, 0, l+1);
-        newArray[l+1] = number;
-        if (r < array.length) {
-            System.arraycopy(array, r, newArray, r+1, array.length-r);
-        }
-        if (newArray.length <= resultSize) {
+        if (array.length < resultSize) {
+            long[] newArray = new long[array.length+1];
+            System.arraycopy(array, 0, newArray, 1, array.length);
             array = newArray;
-        } else {
-            System.arraycopy(newArray, 1, array, 0, resultSize);
+            ++p;
         }
+        // replace first
+        if (array.length == resultSize && p == -1) {
+            return;
+        }
+        System.arraycopy(array, 1, array, 0, p);
+        array[p] = number;
+        int f = 1;
     }
 
     @Override
