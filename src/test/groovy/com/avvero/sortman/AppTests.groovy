@@ -2,6 +2,7 @@ package com.avvero.sortman
 
 import com.avvero.sortman.handler.ArrayHandler
 import com.avvero.sortman.handler.ArrayListHandler
+import com.avvero.sortman.handler.BSArrayHandler
 import com.avvero.sortman.handler.TreeSetHandler
 import spock.lang.Specification
 import spock.lang.Unroll
@@ -17,21 +18,26 @@ class AppTests extends Specification {
             readAndSort(fileName, handler).size() != 0
         where:
             fileName                  | handler
-            "random_7_10.txt"         | new TreeSetHandler(10)
-            "random_7_10.txt"         | new ArrayListHandler(10)
-            "random_7_10.txt"         | new ArrayHandler(10)
+            "random_7_10.txt"         | new TreeSetHandler(300)
+            "random_7_10.txt"         | new ArrayListHandler(300)
+            "random_7_10.txt"         | new ArrayHandler(300)
+            "random_7_10.txt"         | new BSArrayHandler(300)
+            "random_7_10.txt"         | new BSArrayHandler(300)
 
-            "random_24_100.txt"       | new TreeSetHandler(10)
-            "random_24_100.txt"       | new ArrayListHandler(10)
-            "random_24_100.txt"       | new ArrayHandler(10)
+            "random_24_100.txt"       | new TreeSetHandler(300)
+            "random_24_100.txt"       | new ArrayListHandler(300)
+            "random_24_100.txt"       | new ArrayHandler(300)
+            "random_24_100.txt"       | new BSArrayHandler(300)
 
-            "random_10007_10000.txt"  | new TreeSetHandler(10)
-            "random_10007_10000.txt"  | new ArrayListHandler(10)
-            "random_10007_10000.txt"  | new ArrayHandler(10)
+            "random_10007_10000.txt"  | new TreeSetHandler(300)
+            "random_10007_10000.txt"  | new ArrayListHandler(300)
+            "random_10007_10000.txt"  | new ArrayHandler(300)
+            "random_10007_10000.txt"  | new BSArrayHandler(300)
 
-            "random_1000007_1000.txt" | new TreeSetHandler(10)
-            "random_1000007_1000.txt" | new ArrayListHandler(10)
-            "random_1000007_1000.txt" | new ArrayHandler(10)
+            "random_1000007_1000.txt" | new TreeSetHandler(300)
+            "random_1000007_1000.txt" | new ArrayListHandler(300)
+            "random_1000007_1000.txt" | new ArrayHandler(300)
+            "random_1000007_1000.txt" | new BSArrayHandler(300)
     }
 
     def readAndSort(fileName, handler) {
