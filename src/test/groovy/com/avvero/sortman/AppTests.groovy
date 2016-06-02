@@ -12,26 +12,26 @@ import spock.lang.Unroll
 class AppTests extends Specification {
 
     @Unroll
-    def "Sort file #fileName with #handler"() {
+    def "Sort file #fileName with #handler "() {
         expect:
             readAndSort(fileName, handler).size() != 0
         where:
             fileName                  | handler
-            "random_7_10.txt"         | new TreeSetHandler<Long>(10)
-            "random_7_10.txt"         | new ArrayListHandler<Long>(10)
-            "random_7_10.txt"         | new ArrayHandler<Long>(10)
+            "random_7_10.txt"         | new TreeSetHandler(10)
+            "random_7_10.txt"         | new ArrayListHandler(10)
+            "random_7_10.txt"         | new ArrayHandler(10)
 
-            "random_24_100.txt"       | new TreeSetHandler<Long>(10)
-            "random_24_100.txt"       | new ArrayListHandler<Long>(10)
-            "random_24_100.txt"       | new ArrayHandler<Long>(10)
+            "random_24_100.txt"       | new TreeSetHandler(10)
+            "random_24_100.txt"       | new ArrayListHandler(10)
+            "random_24_100.txt"       | new ArrayHandler(10)
 
-            "random_10007_10000.txt"  | new TreeSetHandler<Long>(10)
-            "random_10007_10000.txt"  | new ArrayListHandler<Long>(10)
-            "random_10007_10000.txt"  | new ArrayHandler<Long>(10)
+            "random_10007_10000.txt"  | new TreeSetHandler(10)
+            "random_10007_10000.txt"  | new ArrayListHandler(10)
+            "random_10007_10000.txt"  | new ArrayHandler(10)
 
-            "random_1000007_1000.txt" | new TreeSetHandler<Long>(10)
-            "random_1000007_1000.txt" | new ArrayListHandler<Long>(10)
-            "random_1000007_1000.txt" | new ArrayHandler<Long>(10)
+            "random_1000007_1000.txt" | new TreeSetHandler(10)
+            "random_1000007_1000.txt" | new ArrayListHandler(10)
+            "random_1000007_1000.txt" | new ArrayHandler(10)
     }
 
     def readAndSort(fileName, handler) {
