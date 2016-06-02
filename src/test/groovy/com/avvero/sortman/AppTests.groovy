@@ -8,6 +8,7 @@ import spock.lang.Specification
 import spock.lang.Unroll
 
 /**
+ * Tests for srtman
  * @author Avvero
  */
 class AppTests extends Specification {
