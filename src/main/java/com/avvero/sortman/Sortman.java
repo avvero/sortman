@@ -28,6 +28,7 @@ public class Sortman {
         File file = new File(args[1]);
         // Get handler to perform sort
         IHandler handler = HandlerFactory.getHandler(n);
+        // Read number per line
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             String line;
             while ((line = br.readLine()) != null) {
