@@ -5,7 +5,11 @@ import java.util.Collection;
 import java.util.Collections;
 
 /**
- * @author fxdev-belyaev-ay
+ *  Sort handler based on ArrayList with lazy algorithm:
+ * - add new number to list
+ * - sort list
+ * - remove first (the lesser one) element
+ * @author Avvero
  */
 public class ArrayListHandler implements IHandler {
 
@@ -18,8 +22,8 @@ public class ArrayListHandler implements IHandler {
     }
 
     @Override
-    public void put(long number) {
-        // Дубли не добавляем
+    public void add(long number) {
+        // Skip duplicates
         if (!list.contains(number)) {
             list.add(number);
             Collections.sort(list);

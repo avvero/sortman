@@ -4,7 +4,10 @@ import java.util.Collection;
 import java.util.TreeSet;
 
 /**
- * @author fxdev-belyaev-ay
+ * Sort handler based on TreeSet with algorithm:
+ * - add new number to TreeSet
+ * - remove first
+ * @author Avvero
  */
 public class TreeSetHandler implements IHandler {
 
@@ -17,7 +20,7 @@ public class TreeSetHandler implements IHandler {
     }
 
     @Override
-    public void put(long number) {
+    public void add(long number) {
         treeSet.add(number); // добавляем новый
         if (treeSet.size() > resultSize) {
             treeSet.pollFirst(); // удаляем меньший

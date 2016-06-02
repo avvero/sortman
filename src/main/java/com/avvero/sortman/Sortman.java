@@ -13,7 +13,7 @@ import static java.util.stream.Collectors.joining;
 
 /**
  * TODO Назначение программы
- * @author fxdev-belyaev-ay
+ * @author Avvero
  */
 public class Sortman {
 
@@ -26,12 +26,13 @@ public class Sortman {
         }
         int n = Integer.parseInt(args[0]);
         File file = new File(args[1]);
+        // Get handler to perform sort
         IHandler handler = HandlerFactory.getHandler(n);
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             String line;
             while ((line = br.readLine()) != null) {
                 long number = Long.parseLong(line);
-                handler.put(number);
+                handler.add(number);
             }
         }
         String resultString = handler.result().stream().map(i -> i.toString()).collect(joining(", "));
@@ -39,10 +40,10 @@ public class Sortman {
     }
 
     /**
-     * Валидация параметров:
-     * - прааметра должно быть два
-     * - первый параметр должен быть целым числом, большим нуля
-     * - второй параметр - путь к существующему файлу с данными
+     * Argument validation
+     * - required two parameters to perform operation
+     * - first parameter is the size of result list (integer, greater than zero)
+     * - second parameter is the path to the file (file must exist)
      * @param args
      */
     private static void validateArguments(String[] args) throws SortmanException {

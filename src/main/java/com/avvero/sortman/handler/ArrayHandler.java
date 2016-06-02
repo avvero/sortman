@@ -5,7 +5,11 @@ import java.util.Collection;
 import java.util.stream.Collectors;
 
 /**
- * @author fxdev-belyaev-ay
+ * Sort handler based on array with lazy algorithm:
+ * - add new number to array
+ * - sort array
+ * - remove first (the lesser one) element
+ * @author Avvero
  */
 public class ArrayHandler implements IHandler {
 
@@ -17,11 +21,11 @@ public class ArrayHandler implements IHandler {
     }
 
     @Override
-    public void put(long number) {
+    public void add(long number) {
         if (array == null) {
             array = new long[0];
         }
-        // Лишний цикл проверки на дубли
+        // Skip duplicates
         for (int i = 0; i < array.length; i++) {
             if (array[i] == number) {
                 return;

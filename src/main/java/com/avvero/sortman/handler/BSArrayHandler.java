@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.stream.Collectors;
 
 /**
+ * Sort handler based on array and binarysearch algorithm
  * @author Avvero
  */
 public class BSArrayHandler implements IHandler {
@@ -17,12 +18,12 @@ public class BSArrayHandler implements IHandler {
     }
 
     @Override
-    public void put(long number) {
+    public void add(long number) {
         if (array == null) {
             array = new long[]{number};
             return;
         }
-        //position search
+        // search position like binarysearch do
         int p = -1; //position
         int low = 0, mid, high = this.array.length;
         while (low < high) {
@@ -38,19 +39,19 @@ public class BSArrayHandler implements IHandler {
                 }
             }
         }
+        // skip less-than-first element
+        if (array.length == resultSize && p == -1) {
+            return;
+        }
+        // increase size for the undersized array
         if (array.length < resultSize) {
             long[] newArray = new long[array.length+1];
             System.arraycopy(array, 0, newArray, 1, array.length);
             array = newArray;
-            ++p;
-        }
-        // replace first
-        if (array.length == resultSize && p == -1) {
-            return;
+            ++p; // position must be increased too
         }
         System.arraycopy(array, 1, array, 0, p);
         array[p] = number;
-        int f = 1;
     }
 
     @Override

@@ -1,11 +1,15 @@
 package com.avvero.sortman
 
 /**
- * Генерация файла с количеством строк length со случайным набором целых чисел в диапазоне max
- * @author fxdev-belyaev-ay
+ * Convenient file generator with number-per-line data
+ * @author Avvero
  */
 class DataFileRandomGenerator {
 
+    /**
+     * Groovy magic
+     * @param strings
+     */
     public static void main(String [] strings) {
         int length = strings[0].toInteger()
         int max = strings[1].toInteger()

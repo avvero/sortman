@@ -8,12 +8,12 @@ import spock.lang.Specification
 import spock.lang.Unroll
 
 /**
- * @author fxdev-belyaev-ay
+ * @author Avvero
  */
 class AppTests extends Specification {
 
     @Unroll
-    def "Sort file #fileName with #handler "() {
+    def "Sort file #fileName with #handler for timer"() {
         expect:
             readAndSort(fileName, handler).size() != 0
         where:
@@ -45,7 +45,7 @@ class AppTests extends Specification {
             def line
             while (line = reader.readLine()) {
                 def number = Long.parseLong(line);
-                handler.put(number);
+                handler.add(number);
             }
         }
         def result = handler.result()

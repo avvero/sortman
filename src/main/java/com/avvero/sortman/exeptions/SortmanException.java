@@ -1,7 +1,8 @@
 package com.avvero.sortman.exeptions;
 
 /**
- * @author fxdev-belyaev-ay
+ * Some special exception for this project
+ * @author Avvero
  */
 public class SortmanException extends Exception {
 
