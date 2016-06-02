@@ -24,11 +24,11 @@ public class Sortman {
         }
         int n = Integer.parseInt(args[0]);
         File file = new File(args[1]);
-        IHandler<Long> handler = new HandlerFactory<Long>().getHandler(n);
+        IHandler handler = new HandlerFactory().getHandler(n);
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             String line;
             while ((line = br.readLine()) != null) {
-                Long number = Long.parseLong(line);
+                long number = Long.parseLong(line);
                 handler.put(number);
             }
         }

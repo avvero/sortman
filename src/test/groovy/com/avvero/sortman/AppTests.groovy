@@ -1,5 +1,6 @@
 package com.avvero.sortman
 
+import com.avvero.sortman.handler.ArrayHandler
 import com.avvero.sortman.handler.ArrayListHandler
 import com.avvero.sortman.handler.TreeSetHandler
 import spock.lang.Specification
@@ -13,11 +14,24 @@ class AppTests extends Specification {
     @Unroll
     def "Sort file #fileName with #handler"() {
         expect:
-            readAndSort(fileName, handler).size() == 10
+            readAndSort(fileName, handler).size() != 0
         where:
-            fileName      | handler
-            "random1.txt" | new TreeSetHandler<Long>(10)
-            "random1.txt" | new ArrayListHandler<Long>(10)
+            fileName                  | handler
+            "random_7_10.txt"         | new TreeSetHandler<Long>(10)
+            "random_7_10.txt"         | new ArrayListHandler<Long>(10)
+            "random_7_10.txt"         | new ArrayHandler<Long>(10)
+
+            "random_24_100.txt"       | new TreeSetHandler<Long>(10)
+            "random_24_100.txt"       | new ArrayListHandler<Long>(10)
+            "random_24_100.txt"       | new ArrayHandler<Long>(10)
+
+            "random_10007_10000.txt"  | new TreeSetHandler<Long>(10)
+            "random_10007_10000.txt"  | new ArrayListHandler<Long>(10)
+            "random_10007_10000.txt"  | new ArrayHandler<Long>(10)
+
+            "random_1000007_1000.txt" | new TreeSetHandler<Long>(10)
+            "random_1000007_1000.txt" | new ArrayListHandler<Long>(10)
+            "random_1000007_1000.txt" | new ArrayHandler<Long>(10)
     }
 
     def readAndSort(fileName, handler) {
@@ -29,6 +43,8 @@ class AppTests extends Specification {
                 handler.put(number);
             }
         }
-        return handler.result()
+        def result = handler.result()
+        println result
+        return result
     }
 }

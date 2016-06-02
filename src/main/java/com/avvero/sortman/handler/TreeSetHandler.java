@@ -6,10 +6,10 @@ import java.util.TreeSet;
 /**
  * @author fxdev-belyaev-ay
  */
-public class TreeSetHandler<T extends Comparable> implements IHandler<T> {
+public class TreeSetHandler implements IHandler {
 
     private int resultSize;
-    private TreeSet<T> treeSet;
+    private TreeSet treeSet;
 
     public TreeSetHandler(int resultSize) {
         this.resultSize = resultSize;
@@ -17,7 +17,7 @@ public class TreeSetHandler<T extends Comparable> implements IHandler<T> {
     }
 
     @Override
-    public void put(T number) {
+    public void put(long number) {
         treeSet.add(number); // добавляем новый
         if (treeSet.size() > resultSize) {
             treeSet.pollFirst(); // удаляем меньший
@@ -25,7 +25,7 @@ public class TreeSetHandler<T extends Comparable> implements IHandler<T> {
     }
 
     @Override
-    public Collection<T> result() {
+    public Collection result() {
         return treeSet;
     }
 }

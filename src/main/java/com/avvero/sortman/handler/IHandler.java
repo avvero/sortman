@@ -5,9 +5,9 @@ import java.util.Collection;
 /**
  * @author fxdev-belyaev-ay
  */
-public interface IHandler<T extends Comparable> {
+public interface IHandler {
 
-    void put(T number);
-    Collection<T> result();
+    void put(long number);
+    Collection<Long> result();
 
 }

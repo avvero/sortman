@@ -7,10 +7,10 @@ import java.util.Collections;
 /**
  * @author fxdev-belyaev-ay
  */
-public class ArrayListHandler<T extends Comparable> implements IHandler<T> {
+public class ArrayListHandler implements IHandler {
 
     private int resultSize;
-    private ArrayList<T> list;
+    private ArrayList<Long> list;
 
     public ArrayListHandler(int resultSize) {
         this.resultSize = resultSize;
@@ -18,16 +18,19 @@ public class ArrayListHandler<T extends Comparable> implements IHandler<T> {
     }
 
     @Override
-    public void put(T number) {
-        list.add(number);
-        Collections.sort(list);
-        if (list.size() > resultSize){
-            list.remove(0);
+    public void put(long number) {
+        // Дубли не добавляем
+        if (!list.contains(number)) {
+            list.add(number);
+            Collections.sort(list);
+            if (list.size() > resultSize){
+                list.remove(0);
+            }
         }
     }
 
     @Override
-    public Collection<T> result() {
+    public Collection result() {
         return list;
     }
 }
