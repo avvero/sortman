@@ -13,23 +13,30 @@ public class ArrayHandler implements IHandler {
 
     public ArrayHandler(int resultSize) {
         this.resultSize = resultSize;
-        array = new long[resultSize];
     }
 
     @Override
     public void put(long number) {
-        boolean done = false;
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] == 0 || array[i] == number) {
-                array[i] = number;
-                done = true;
-                break;
+        if (array == null) {
+            array = new long[0];
+        }
+        if (array.length == 0 || number > array[0]) {
+            // Лишний цикл проверки на дубли
+            for (int i = 0; i < array.length; i++) {
+                if (array[i] == number) {
+                    return;
+                }
+            }
+            long[] newArray = Arrays.copyOf(array, array.length+1);
+            newArray[array.length] = number;
+            Arrays.sort(newArray);
+
+            if (newArray.length <= resultSize) {
+                array = newArray;
+            } else {
+                System.arraycopy(newArray, 1, array, 0, resultSize);
             }
         }
-        if (!done) {
-            array[0] = number;
-        }
-        Arrays.sort(array);
     }
 
     @Override
