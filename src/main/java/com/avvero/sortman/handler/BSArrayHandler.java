@@ -22,8 +22,9 @@ public class BSArrayHandler implements IHandler {
             array = new long[]{number};
             return;
         }
-        int l = -1;
-        int r = 0;
+        //position search
+        int l = -1; //left border
+        int r = 0;  //right border
         int low = 0, mid, high = this.array.length;
         while (low < high) {
             mid = (low + high) >>> 1;
@@ -39,6 +40,16 @@ public class BSArrayHandler implements IHandler {
                     low = mid + 1;
                 }
             }
+        }
+        // replace first
+        if (array.length == resultSize && l == -1) {
+            array[0] = number;
+            return;
+        }
+        // replace last
+        if (array.length == resultSize && (l + 1) == array.length) {
+            array[l] = number;
+            return;
         }
         long[] newArray = new long[array.length+1];
         System.arraycopy(array, 0, newArray, 0, l+1);
