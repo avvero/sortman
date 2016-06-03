@@ -2,6 +2,7 @@ package com.avvero.sortman.handler;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.stream.Collectors;
 
 /**
@@ -46,6 +47,10 @@ public class ArrayHandler implements IHandler {
 
     @Override
     public Collection result() {
-        return Arrays.stream(array).boxed().collect(Collectors.toList());
+        if (array == null) {
+            return Collections.emptyList();
+        } else {
+            return Arrays.stream(array).boxed().collect(Collectors.toList());
+        }
     }
 }

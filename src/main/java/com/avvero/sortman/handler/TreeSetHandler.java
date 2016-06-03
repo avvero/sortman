@@ -23,9 +23,9 @@ public class TreeSetHandler implements IHandler {
 
     @Override
     public void add(long number) {
-        treeSet.add(number); // добавляем новый
+        treeSet.add(number);
         if (treeSet.size() > resultSize) {
-            treeSet.pollFirst(); // удаляем меньший
+            treeSet.pollFirst();
         }
     }
 
