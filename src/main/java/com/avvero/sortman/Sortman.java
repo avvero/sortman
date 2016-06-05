@@ -64,7 +64,7 @@ public class Sortman {
         int n;
         if(args.length < 2) {
             throw new SortmanException("Not enough parameters to perform sort operation: \n" +
-                    " [required] size(int) of result list \n" +
+                    " [required] size(int) of the result-list \n" +
                     " [required] input file name with number-per-line data \n" +
                     " [optional] output file for result");
         }

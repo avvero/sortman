@@ -1,10 +1,14 @@
-# Назначение
-Основное назначение данного приложения - сортировка указанного в параметрах файла "алгоритмом".
-# Инструкция
-Для осуществления сортировки необходимо вызывать приложение с параметрами:
-1 (обязательный) размер списка-результата, размер должен быть целым числом, большим нуля.
-2 (обязательный) исходный файл с числами для сортировки, файл должен содержать в каждой строке простое целое число, большее нуля.
-3 (опциональный) файл для вывода результата сортировки. Если данный параметр не указан, результат будет выведен в консоль.
-# Примеры вызова
+# Mission
+Main mission of this application is sorting specified file with THE ALGORITHM.
+
+#Distribution
+Application is distributed as jar file. For 1.0 version it is *sortman-1.0.jar*
+
+# Call parameters
+[required] size(int) of the result-list
+[required] input file name with number-per-line data
+[optional] output file name for result
+
+# Example
 java -jar sortman-1.0.jar 10 random_10007_10000.txt
 java -jar sortman-1.0.jar 10 random_10007_10000.txt result.txt
