@@ -1,5 +1,5 @@
 group 'com.avvero'
-version '1.0-SNAPSHOT'
+version '1.0'
 
 apply plugin: 'java'
 apply plugin: 'groovy'
@@ -8,6 +8,12 @@ sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'com.avvero.sortman.Sortman'
+    }
 }
 
 dependencies {
