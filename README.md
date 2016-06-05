@@ -13,4 +13,5 @@ Application is distributed as jar file. For 1.0 version it is *sortman-1.0.jar*
 
 ## Example
 java -jar sortman-1.0.jar 10 random_10007_10000.txt
+
 java -jar sortman-1.0.jar 10 random_10007_10000.txt result.txt
